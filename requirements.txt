@@ -1,1 +1,6 @@
+# Archivo de dependencias del proyecto
 streamlit
+# Librería para manipulación y análisis de datos
+pandas
+# Librería para machine learning
+scikit-learn
