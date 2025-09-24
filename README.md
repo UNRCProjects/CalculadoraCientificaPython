@@ -1,6 +1,6 @@
 # Calculadora para Ciencia de Datos
 
-Este proyecto es una calculadora desarrollada 100% en **Python + Streamlit**, diseñada como práctica para estudiantes de Ciencia de Datos.  
+Este proyecto es una calculadora desarrollada 100% en **Python + Streamlit + FastAPI**, diseñada como práctica para estudiantes de Ciencia de Datos.  
 
 La aplicación permite realizar operaciones matemáticas, estadísticas, gráficas, procesamiento de imágenes en un entorno sencillo y visual.  
 
@@ -20,16 +20,23 @@ DataScienceCalculator/
 │── README.md
 │── requirements.txt
 │── app.py 
+├── assets/
+│ ├── imagen1.png
+│ ├── imagen2.png
 ├── backend/
-│ ├── init.py
-│ ├── aritmetica.py
-├── frontend/ # Capa de presentación (vistas en Streamlit)
-│ ├── init.py
+│ ├── modulo1.py
+│ ├── api/
+│ │ ├── modulo1.py
+│ │ ├── main.py
+├── frontend/ (vistas)
 │ ├── home_view.py
-│ ├── aritmetica_view.py
+│ ├── autores_view.py
+│ ├── modulo1/
+│ │ ├── operacion1.py
+│ │ ├── operacion2.py
 ```
 
-## Ejecutar en local
+## Ejecutar en local 
 
 1. Clona el repositorio
 
@@ -52,13 +59,25 @@ DataScienceCalculator/
 	```bash
 	pip install -r requirements.txt
 	```
-4. Ejecuta el archivo principal
+
+### Ejecutar Servicio Web
+4a. Ejecuta el archivo principal
 
    ```bash
    streamlit run app.py
    ```
-5. Abrir en el navegador `http://localhost:8501`
+5a. Abrir en el navegador `http://localhost:8501`
+
+### Ejecutar API
+4b. Ejecuta el archivo principal
+
+   ```bash
+   uvicorn backend.api.main:app --reload
+   ```
+5b. Probar la operacion suma `http://localhost:8000/aritmetica/suma?a=1&b=2`  
+
+6b. Probar la operacion división `http://localhost:8000/aritmetica/division?a=4&b=2`
 
 ## Autores
 
-Este proyecto es desarrollado por estudiantes de 8vo semestre (801 y 802) año escolar 2025-2 de la Universidad Nacional Rosario Castellanos Campus Magdalena Contreras.
+Este proyecto es desarrollado por estudiantes de 8vo semestre (2025-2) de la Universidad Nacional Rosario Castellanos Campus Magdalena Contreras.
