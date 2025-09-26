@@ -1,5 +1,6 @@
 import streamlit as st
 from frontend.aritmetica import mcd_view, mcm_view, primos_view, coprimos_view
+from frontend.matrices import suma_render, multiplicacion_render, determinante_render, inversa_render
 from frontend import home_view
 from frontend import autores_view
 
@@ -28,19 +29,19 @@ with st.sidebar.expander("🏠 Home", expanded=False):
     if st.button("Autores", key="autores_btn"):
         st.session_state['categoria'] = "Autores"
 
-with st.sidebar.expander("🧮 Aritmética"):
-    if st.button("Máximo Común Divisor (MCD)", key="mcd_btn"):
-        st.session_state['categoria'] = "Aritmética"
-        st.session_state['subopcion'] = "MCD"
-    if st.button("Mínimo Común Multiplo (MCM)", key="mcm_btn"):
-        st.session_state['categoria'] = "Aritmética"
-        st.session_state['subopcion'] = "MCM"
-    if st.button("Número primo", key="primos_btn"):
-        st.session_state['categoria'] = "Aritmética"
-        st.session_state['subopcion'] = "Primos"
-    if st.button("Números coprimos", key="coprimos_btn"):
-        st.session_state['categoria'] = "Aritmética"
-        st.session_state['subopcion'] = "Coprimos"
+with st.sidebar.expander("🔢 Álgebra Lineal"):
+    if st.button("Suma de Matrices", key="suma_matrices_btn"):
+        st.session_state['categoria'] = "Álgebra Lineal"
+        st.session_state['subopcion'] = "Suma"
+    if st.button("Multiplicación de Matrices", key="mult_matrices_btn"):
+        st.session_state['categoria'] = "Álgebra Lineal"
+        st.session_state['subopcion'] = "Multiplicacion"
+    if st.button("Determinante", key="det_matrices_btn"):
+        st.session_state['categoria'] = "Álgebra Lineal"
+        st.session_state['subopcion'] = "Determinante"
+    if st.button("Matriz Inversa", key="inv_matrices_btn"):
+        st.session_state['categoria'] = "Álgebra Lineal"
+        st.session_state['subopcion'] = "Inversa"
 
 # Ruteo según selección
 categoria = st.session_state['categoria']
@@ -56,8 +57,14 @@ elif categoria == "Aritmética" and subopcion == "Primos":
     primos_view.render()
 elif categoria == "Aritmética" and subopcion == "Coprimos":
     coprimos_view.render()
-elif categoria == "Autores":
-    autores_view.render()
+elif categoria == "Álgebra Lineal" and subopcion == "Suma":
+    suma_render()
+elif categoria == "Álgebra Lineal" and subopcion == "Multiplicacion":
+    multiplicacion_render()
+elif categoria == "Álgebra Lineal" and subopcion == "Determinante":
+    determinante_render()
+elif categoria == "Álgebra Lineal" and subopcion == "Inversa":
+    inversa_render()
 
 # Footer
 st.markdown(
