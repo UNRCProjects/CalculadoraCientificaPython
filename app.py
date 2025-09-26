@@ -1,5 +1,6 @@
 import streamlit as st
 from frontend.aritmetica import mcd_view, mcm_view, primos_view, coprimos_view
+from frontend.investigacion_operaciones import camino_corto_view, transporte_view
 from frontend import home_view
 from frontend import autores_view
 
@@ -42,6 +43,14 @@ with st.sidebar.expander("🧮 Aritmética"):
         st.session_state['categoria'] = "Aritmética"
         st.session_state['subopcion'] = "Coprimos"
 
+with st.sidebar.expander("🔬 Investigación de Operaciones"):
+    if st.button("Camino Más Corto", key="camino_corto_btn"):
+        st.session_state['categoria'] = "Investigación de Operaciones"
+        st.session_state['subopcion'] = "Camino Corto"
+    if st.button("Problema de Transporte", key="transporte_btn"):
+        st.session_state['categoria'] = "Investigación de Operaciones"
+        st.session_state['subopcion'] = "Transporte"
+
 # Ruteo según selección
 categoria = st.session_state['categoria']
 subopcion = st.session_state['subopcion']
@@ -56,6 +65,10 @@ elif categoria == "Aritmética" and subopcion == "Primos":
     primos_view.render()
 elif categoria == "Aritmética" and subopcion == "Coprimos":
     coprimos_view.render()
+elif categoria == "Investigación de Operaciones" and subopcion == "Camino Corto":
+    camino_corto_view()
+elif categoria == "Investigación de Operaciones" and subopcion == "Transporte":
+    transporte_view()
 elif categoria == "Autores":
     autores_view.render()
 
