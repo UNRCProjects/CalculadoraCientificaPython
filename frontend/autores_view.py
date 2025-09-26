@@ -8,4 +8,6 @@ def render():
     st.markdown("""
     **Autores (Por orden alfabético):**
     - [Miguel Evangelista](https://github.com/mevangelista-alvarado)
+    - Juan Pablo Ruiz
+    - Udin din dun madin dun 
     """)
