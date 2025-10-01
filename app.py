@@ -2,6 +2,10 @@ import streamlit as st
 from frontend.aritmetica import mcd_view, mcm_view, primos_view, coprimos_view
 from frontend import home_view
 from frontend import autores_view
+from frontend.criptografica import rsa_view
+from frontend.criptografica import sha256_view
+from frontend.criptografica import caesar_view
+from frontend.criptografica import hill_view
 
 # Configuración inicial de la app
 st.set_page_config(
@@ -42,22 +46,44 @@ with st.sidebar.expander("🧮 Aritmética"):
         st.session_state['categoria'] = "Aritmética"
         st.session_state['subopcion'] = "Coprimos"
 
+with st.sidebar.expander("🔒 Cifrado"):
+    if st.button("Cifrado RSA", key="rsa_btn"):
+        st.session_state['categoria'] = "Cifrado"
+        st.session_state['subopcion'] = "RSA"
+    if st.button("Cifrado SHA256", key="sha256_btn"):
+        st.session_state['categoria'] = "Cifrado"
+        st.session_state['subopcion'] = "SHA256"
+    if st.button("Cifrado Caesar", key="caesar_btn"):
+        st.session_state['categoria'] = "Cifrado"
+        st.session_state['subopcion'] = "César"
+    if st.button("Cifrado Hill", key="hill_btn"):
+        st.session_state['categoria'] = "Cifrado"
+        st.session_state['subopcion'] = "Hill"
+
 # Ruteo según selección
 categoria = st.session_state['categoria']
 subopcion = st.session_state['subopcion']
 
 if categoria == "Home":
-    home_view.render()
+    home_view.show()
 elif categoria == "Aritmética" and subopcion == "MCD":
-    mcd_view.render()
+    mcd_view.show()
 elif categoria == "Aritmética" and subopcion == "MCM":
-    mcm_view.render()
+    mcm_view.show()
 elif categoria == "Aritmética" and subopcion == "Primos":
-    primos_view.render()
+    primos_view.show()
 elif categoria == "Aritmética" and subopcion == "Coprimos":
-    coprimos_view.render()
+    coprimos_view.show()
 elif categoria == "Autores":
-    autores_view.render()
+    autores_view.show()
+elif categoria == "Cifrado" and subopcion == "RSA":
+    rsa_view.show()
+elif categoria == "Cifrado" and subopcion == "SHA256":
+    sha256_view.show()
+elif categoria == "Cifrado" and subopcion == "César":
+    caesar_view.show()
+elif categoria == "Cifrado" and subopcion == "Hill":
+    hill_view.show()
 
 # Footer
 st.markdown(
