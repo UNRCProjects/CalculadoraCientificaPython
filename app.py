@@ -1,6 +1,7 @@
 from numpy import False_
 import streamlit as st
 from frontend.aritmetica import suma_view, division_view, aritmetica_view
+from frontend.etl_view import render as etl_render
 from frontend import home_view
 from frontend import autores_view
 
@@ -28,6 +29,7 @@ with st.sidebar.expander("🏠 Home", expanded=False):
     if st.button("Autores", key="autores_btn"):
         st.session_state['categoria'] = "Autores"
 
+
 with st.sidebar.expander("🧮 Aritmética", expanded=False):
     if st.button("Suma", key="suma_btn"):
         st.session_state['categoria'] = "Aritmética"
@@ -35,6 +37,11 @@ with st.sidebar.expander("🧮 Aritmética", expanded=False):
     if st.button("División", key="division_btn"):
         st.session_state['categoria'] = "Aritmética"
         st.session_state['subopcion'] = "División"
+
+with st.sidebar.expander("🧹 ETL (CSV)", expanded=False):
+    if st.button("Procesar CSV", key="etl_btn"):
+        st.session_state['categoria'] = "ETL"
+        st.session_state['subopcion'] = "Procesar CSV"
 
 # Ruteo según selección
 categoria = st.session_state['categoria']
@@ -48,6 +55,8 @@ elif categoria == "Aritmética" and subopcion == "División":
     division_view.render()
 elif categoria == "Autores":
     autores_view.render()
+elif categoria == "ETL" and subopcion == "Procesar CSV":
+    etl_render()
 
 # Footer
 st.markdown(
