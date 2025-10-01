@@ -1,6 +1,6 @@
 # Calculadora para Ciencia de Datos
 
-Este proyecto es una calculadora desarrollada 100% en **Python + Streamlit + FastAPI**, diseñada como práctica para estudiantes de Ciencia de Datos.  
+Este proyecto es una calculadora desarrollada 100% en **Python + Streamlit**, diseñada como práctica para estudiantes de Ciencia de Datos.  
 
 La aplicación permite realizar operaciones matemáticas, estadísticas, gráficas, procesamiento de imágenes en un entorno sencillo y visual.  
 
@@ -25,9 +25,6 @@ DataScienceCalculator/
 │ ├── imagen2.png
 ├── backend/
 │ ├── modulo1.py
-│ ├── api/
-│ │ ├── modulo1.py
-│ │ ├── main.py
 ├── frontend/ (vistas)
 │ ├── home_view.py
 │ ├── autores_view.py
@@ -68,6 +65,7 @@ DataScienceCalculator/
    ```
 5a. Abrir en el navegador `http://localhost:8501`
 
+<!--
 ### Ejecutar API
 4b. Ejecuta el archivo principal
 
@@ -77,6 +75,7 @@ DataScienceCalculator/
 5b. Probar la operacion suma `http://localhost:8000/aritmetica/suma?a=1&b=2`  
 
 6b. Probar la operacion división `http://localhost:8000/aritmetica/division?a=4&b=2`
+-->
 
 ## Autores
 

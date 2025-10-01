@@ -1,13 +1,14 @@
-from numpy import False_
 import streamlit as st
-from frontend.aritmetica import suma_view, division_view, aritmetica_view
+from frontend.aritmetica import suma_view, division_view, aritmetica_view, mcd_view, mcm_view, primos_view, coprimos_view
 from frontend.etl_view import render as etl_render
+
 from frontend import home_view
 from frontend import autores_view
 
 # Configuración inicial de la app
 st.set_page_config(
-    page_title="Calculadora Colaborativa", 
+    page_title="Calculadora Colaborativa",
+    page_icon="assets/favicon.ico",
     layout="wide"
 )
 
@@ -30,13 +31,22 @@ with st.sidebar.expander("🏠 Home", expanded=False):
         st.session_state['categoria'] = "Autores"
 
 
+
 with st.sidebar.expander("🧮 Aritmética", expanded=False):
     if st.button("Suma", key="suma_btn"):
+
+
         st.session_state['categoria'] = "Aritmética"
-        st.session_state['subopcion'] = "Suma"
-    if st.button("División", key="division_btn"):
+        st.session_state['subopcion'] = "MCD"
+    if st.button("Mínimo Común Multiplo (MCM)", key="mcm_btn"):
         st.session_state['categoria'] = "Aritmética"
-        st.session_state['subopcion'] = "División"
+        st.session_state['subopcion'] = "MCM"
+    if st.button("Número primo", key="primos_btn"):
+        st.session_state['categoria'] = "Aritmética"
+        st.session_state['subopcion'] = "Primos"
+    if st.button("Números coprimos", key="coprimos_btn"):
+        st.session_state['categoria'] = "Aritmética"
+        st.session_state['subopcion'] = "Coprimos"
 
 with st.sidebar.expander("🧹 ETL (CSV)", expanded=False):
     if st.button("Procesar CSV", key="etl_btn"):
@@ -49,10 +59,14 @@ subopcion = st.session_state['subopcion']
 
 if categoria == "Home":
     home_view.render()
-elif categoria == "Aritmética" and subopcion == "Suma":
-    suma_view.render()
-elif categoria == "Aritmética" and subopcion == "División":
-    division_view.render()
+elif categoria == "Aritmética" and subopcion == "MCD":
+    mcd_view.render()
+elif categoria == "Aritmética" and subopcion == "MCM":
+    mcm_view.render()
+elif categoria == "Aritmética" and subopcion == "Primos":
+    primos_view.render()
+elif categoria == "Aritmética" and subopcion == "Coprimos":
+    coprimos_view.render()
 elif categoria == "Autores":
     autores_view.render()
 elif categoria == "ETL" and subopcion == "Procesar CSV":
