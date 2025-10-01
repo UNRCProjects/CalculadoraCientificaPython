@@ -25,7 +25,8 @@ def render():
         ### Módulos disponibles
     """)
     st.markdown("""
-    - 🧮 Áritmetica  
+    - 🧮 Aritmética  
+    - 📐 Cálculo
     """)
     
     # Nota final
