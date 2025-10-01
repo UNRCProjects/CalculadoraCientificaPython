@@ -1,5 +1,6 @@
 import streamlit as st
 from frontend.aritmetica import mcd_view, mcm_view, primos_view, coprimos_view
+from frontend.algebra_lineal import matrices_view
 from frontend import home_view
 from frontend import autores_view
 
@@ -42,6 +43,11 @@ with st.sidebar.expander("🧮 Aritmética"):
         st.session_state['categoria'] = "Aritmética"
         st.session_state['subopcion'] = "Coprimos"
 
+with st.sidebar.expander("📐 Álgebra Lineal"):
+    if st.button("Multiplicación de Matrices", key="matrices_btn"):
+        st.session_state['categoria'] = "Álgebra Lineal"
+        st.session_state['subopcion'] = "Matrices"
+
 # Ruteo según selección
 categoria = st.session_state['categoria']
 subopcion = st.session_state['subopcion']
@@ -56,6 +62,8 @@ elif categoria == "Aritmética" and subopcion == "Primos":
     primos_view.render()
 elif categoria == "Aritmética" and subopcion == "Coprimos":
     coprimos_view.render()
+elif categoria == "Álgebra Lineal" and subopcion == "Matrices":
+    matrices_view.render()
 elif categoria == "Autores":
     autores_view.render()
 
