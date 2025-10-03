@@ -1,5 +1,5 @@
 import streamlit as st
-from frontend.aritmetica import suma_view, division_view, aritmetica_view
+from frontend.aritmetica import mcd_view, mcm_view, primos_view, coprimos_view
 from frontend import home_view
 from frontend import autores_view
 # Importamos la nueva vista de visualización
@@ -7,7 +7,8 @@ from frontend.visualizacion import scatter_view
 
 # Configuración inicial de la app
 st.set_page_config(
-    page_title="Calculadora Colaborativa", 
+    page_title="Calculadora Colaborativa",
+    page_icon="assets/favicon.ico",
     layout="wide"
 )
 
@@ -43,6 +44,44 @@ subopcion_seleccionada = st.sidebar.radio("Operación", list(subopciones.keys())
 render_function = PAGES[categoria_seleccionada][subopcion_seleccionada]
 render_function()
 
+# Sidebar con categorías y subopciones tipo dropdown
+with st.sidebar.expander("🏠 Home", expanded=False):
+    if st.button("Ir a Home", key="home_btn"):
+        st.session_state['categoria'] = "Home"
+        st.session_state['subopcion'] = "Principal"
+    if st.button("Autores", key="autores_btn"):
+        st.session_state['categoria'] = "Autores"
+
+with st.sidebar.expander("🧮 Aritmética"):
+    if st.button("Máximo Común Divisor (MCD)", key="mcd_btn"):
+        st.session_state['categoria'] = "Aritmética"
+        st.session_state['subopcion'] = "MCD"
+    if st.button("Mínimo Común Multiplo (MCM)", key="mcm_btn"):
+        st.session_state['categoria'] = "Aritmética"
+        st.session_state['subopcion'] = "MCM"
+    if st.button("Número primo", key="primos_btn"):
+        st.session_state['categoria'] = "Aritmética"
+        st.session_state['subopcion'] = "Primos"
+    if st.button("Números coprimos", key="coprimos_btn"):
+        st.session_state['categoria'] = "Aritmética"
+        st.session_state['subopcion'] = "Coprimos"
+
+# Ruteo según selección
+categoria = st.session_state['categoria']
+subopcion = st.session_state['subopcion']
+
+if categoria == "Home":
+    home_view.render()
+elif categoria == "Aritmética" and subopcion == "MCD":
+    mcd_view.render()
+elif categoria == "Aritmética" and subopcion == "MCM":
+    mcm_view.render()
+elif categoria == "Aritmética" and subopcion == "Primos":
+    primos_view.render()
+elif categoria == "Aritmética" and subopcion == "Coprimos":
+    coprimos_view.render()
+elif categoria == "Autores":
+    autores_view.render()
 
 # Footer
 st.markdown(
