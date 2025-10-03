@@ -2,7 +2,7 @@ import streamlit as st
 
 def render():
     # Imagen superior
-    st.image("assets/cintillo.png", use_container_width=True)
+    st.image("assets/cintillo.png", width="stretch")
     # Título principal
     st.title("""
         Calculadora de Ciencia de Datos
