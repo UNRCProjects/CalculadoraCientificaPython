@@ -27,7 +27,9 @@ def render():
     st.markdown("""
     - 🧮 Áritmetica  
     """)
-    
+    st.markdown("""
+    - 🔐 Criptografía  
+    """)
     # Nota final
     st.info("""
         Selecciona un módulo en el menú lateral para comenzar.
