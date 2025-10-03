@@ -1,11 +1,7 @@
 import streamlit as st
 from frontend.aritmetica import mcd_view, mcm_view, primos_view, coprimos_view
-from frontend import home_view
-from frontend import autores_view
-from frontend.criptografica import rsa_view
-from frontend.criptografica import sha256_view
-from frontend.criptografica import caesar_view
-from frontend.criptografica import hill_view
+from frontend import home_view, autores_view
+from frontend.criptografica import rsa_view, sha256_view, caesar_view, hill_view
 
 # Configuración inicial de la app
 st.set_page_config(
@@ -65,25 +61,25 @@ categoria = st.session_state['categoria']
 subopcion = st.session_state['subopcion']
 
 if categoria == "Home":
-    home_view.show()
+    home_view.render()
 elif categoria == "Aritmética" and subopcion == "MCD":
-    mcd_view.show()
+    mcd_view.render()
 elif categoria == "Aritmética" and subopcion == "MCM":
-    mcm_view.show()
+    mcm_view.render()
 elif categoria == "Aritmética" and subopcion == "Primos":
-    primos_view.show()
+    primos_view.render()
 elif categoria == "Aritmética" and subopcion == "Coprimos":
-    coprimos_view.show()
+    coprimos_view.render()
 elif categoria == "Autores":
-    autores_view.show()
+    autores_view.render()
 elif categoria == "Cifrado" and subopcion == "RSA":
-    rsa_view.show()
+    rsa_view.render()
 elif categoria == "Cifrado" and subopcion == "SHA256":
-    sha256_view.show()
+    sha256_view.render()
 elif categoria == "Cifrado" and subopcion == "César":
-    caesar_view.show()
+    caesar_view.render()
 elif categoria == "Cifrado" and subopcion == "Hill":
-    hill_view.show()
+    hill_view.render()
 
 # Footer
 st.markdown(
