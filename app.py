@@ -1,5 +1,6 @@
 import streamlit as st
 from frontend.aritmetica import mcd_view, mcm_view, primos_view, coprimos_view
+from frontend.probabilidad import carga_datos_view, distribuciones_view
 from frontend import home_view
 from frontend import autores_view
 
@@ -42,6 +43,14 @@ with st.sidebar.expander("🧮 Aritmética"):
         st.session_state['categoria'] = "Aritmética"
         st.session_state['subopcion'] = "Coprimos"
 
+with st.sidebar.expander("📊 Probabilidad"):
+    if st.button("Carga de Datos", key="carga_datos_btn"):
+        st.session_state['categoria'] = "Probabilidad"
+        st.session_state['subopcion'] = "Carga de Datos"
+    if st.button("Análisis de Distribuciones", key="distribuciones_btn"):
+        st.session_state['categoria'] = "Probabilidad"
+        st.session_state['subopcion'] = "Distribuciones"
+
 # Ruteo según selección
 categoria = st.session_state['categoria']
 subopcion = st.session_state['subopcion']
@@ -56,6 +65,10 @@ elif categoria == "Aritmética" and subopcion == "Primos":
     primos_view.render()
 elif categoria == "Aritmética" and subopcion == "Coprimos":
     coprimos_view.render()
+elif categoria == "Probabilidad" and subopcion == "Carga de Datos":
+    carga_datos_view.render()
+elif categoria == "Probabilidad" and subopcion == "Distribuciones":
+    distribuciones_view.render()
 elif categoria == "Autores":
     autores_view.render()
 
