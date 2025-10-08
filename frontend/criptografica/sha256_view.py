@@ -2,7 +2,7 @@ import streamlit as st
 from backend.criptografia import sha256_hash
 
 def render():
-    st.title("🔒 Hash SHA256")
+    st.title("🔐 Hash SHA256")
     
     st.markdown("""
     ### Descripción

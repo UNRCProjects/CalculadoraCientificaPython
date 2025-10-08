@@ -42,7 +42,7 @@ with st.sidebar.expander("🧮 Aritmética"):
         st.session_state['categoria'] = "Aritmética"
         st.session_state['subopcion'] = "Coprimos"
 
-with st.sidebar.expander("🔒 Cifrado"):
+with st.sidebar.expander("🔐 Cifrado"):
     if st.button("Cifrado RSA", key="rsa_btn"):
         st.session_state['categoria'] = "Cifrado"
         st.session_state['subopcion'] = "RSA"
