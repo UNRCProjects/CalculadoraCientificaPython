@@ -1,5 +1,7 @@
 # Calculadora para Ciencia de Datos
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4a80b011d72a408a94000e10a9166a51)](https://app.codacy.com/gh/UNRCProjects/DataScienceCalculator?utm_source=github.com&utm_medium=referral&utm_content=UNRCProjects/DataScienceCalculator&utm_campaign=Badge_Grade)
+
 Este proyecto es una calculadora desarrollada 100% en **Python + Streamlit**, diseñada como práctica para estudiantes de Ciencia de Datos.  
 
 La aplicación permite realizar operaciones matemáticas, estadísticas, gráficas, procesamiento de imágenes en un entorno sencillo y visual.  
