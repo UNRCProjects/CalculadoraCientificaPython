@@ -25,7 +25,13 @@ def render():
         ### Módulos disponibles
     """)
     st.markdown("""
-    - 🧮 Áritmetica  
+    - 🧮 **Aritmética**
+        - Máximo Común Divisor (MCD)
+        - Mínimo Común Múltiplo (MCM)
+        - Números primos
+        - Números coprimos
+        - 🔐 Cifrado de César
+        - 🔢 Inversa de matrices
     """)
     
     # Nota final
