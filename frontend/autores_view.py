@@ -7,5 +7,7 @@ def render():
     """)
     st.markdown("""
     **Autores (Por orden alfabético):**
+            
+    - [José Adán Quintero Sánchez](https://github.com/adanqz)
     - [Miguel Evangelista](https://github.com/mevangelista-alvarado)
     """)
